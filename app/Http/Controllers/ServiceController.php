@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Service;
 
 class ServiceController extends Controller
 {
@@ -13,7 +14,16 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        //
+        try {
+            $services = Service::all();
+            if ($services !== null) {
+                return view('service.index', ['services' => $services]);
+            } else {
+                return view('service.index', ['error' => 'Error. No services']);
+            }
+        } catch (\Exception $e) {
+            return view('service.index', ['error' => 'Error. No services']);
+        }
     }
 
     /**

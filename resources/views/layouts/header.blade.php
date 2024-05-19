@@ -19,8 +19,8 @@
         </div>
     </div>
 </div>
-<div class="text-center pt-6">
-    <p>
-        <a class="btn bg-gray-800 dark:bg-gray-700 text-white text-lg px-8 py-3 rounded-full btn-cita" href="./services" role="button">Pedir cita</a>
-    </p>
+<div class="text-center pt-4">
+    <x-nav-link class="btn bg-gray-800 dark:bg-gray-700 text-white text-lg px-8 py-3 rounded-full btn-cita" :href="route('services')" role="button">
+        <span class="inline-block align-middle">Pedir cita</span>
+    </x-nav-link>
 </div>

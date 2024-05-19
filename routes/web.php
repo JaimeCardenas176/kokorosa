@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\AppointmentController;
+
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -17,4 +20,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::get('/services', [ServiceController::class, 'index'])->name('services');
+Route::post('/appointments', [AppointmentController::class, 'create'])->name('createAppointment');
 require __DIR__.'/auth.php';
