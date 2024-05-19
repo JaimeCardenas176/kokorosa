@@ -7,9 +7,20 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use App\Models\Appointment;
+
+
 class User extends Authenticatable
 {
     use HasFactory, Notifiable;
+
+    public $timestamps = false;
+
+
+    public function appointments(): HasMany {
+        return this->hasMany(Appointment::class);
+    }
 
     /**
      * The attributes that are mass assignable.
@@ -18,7 +29,9 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'surname',
         'email',
+        'phone',
         'password',
     ];
 
